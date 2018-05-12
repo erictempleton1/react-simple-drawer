@@ -66,13 +66,9 @@ class PersistentDrawer extends Component {
     anchor: 'right',
   };
 
-  handleDrawerOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleDrawerClose = () => {
-    this.setState({ open: false });
-  };
+  toggleDrawer = () => {
+    this.setState({ open: this.state.open ? false : true });
+  }
 
   render() {
     const { classes } = this.props;
@@ -105,8 +101,7 @@ class PersistentDrawer extends Component {
               [classes[`contentShift-${anchor}`]]: open,
             })}
           >
-            <Button onClick={this.handleDrawerOpen}>Open</Button>
-            <Button onClick={this.handleDrawerClose}>Close</Button>
+            <Button onClick={this.toggleDrawer}>Toggle Drawer</Button>
           </main>
           {drawer}
         </div>
