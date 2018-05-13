@@ -43,7 +43,7 @@ const styles = theme => ({
 });
 
 
-class PersistentDrawer extends Component {
+class App extends Component {
   state = {
     open: false,
   };
@@ -54,15 +54,14 @@ class PersistentDrawer extends Component {
 
   render() {
     const { classes } = this.props;
-    const { open } = this.state;
 
     return (
       <div className={classes.root}>
         <div className={classes.appFrame}>
           <main
             className={classNames(classes.content, classes['content-right'], {
-              [classes.contentShift]: open,
-              [classes['contentShift-right']]: open,
+              [classes.contentShift]: this.state.open,
+              [classes['contentShift-right']]: this.state.open,
             })}
           >
             <Button onClick={this.toggleDrawer}>Toggle Drawer</Button>
@@ -74,4 +73,4 @@ class PersistentDrawer extends Component {
   }
 }
 
-export default withStyles(styles)(PersistentDrawer);
+export default withStyles(styles)(App);
