@@ -3,7 +3,8 @@ import { withStyles } from 'material-ui/styles';
 import classNames from 'classnames';
 import Button from 'material-ui/Button';
 
-import DrawerComponent from './DrawerComponent';
+import DrawerToggle from './DrawerToggle';
+import MenuComponent from './MenuComponent';
 
 
 const drawerWidth = 150;
@@ -25,7 +26,7 @@ const styles = theme => ({
     padding: theme.spacing.unit,
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
+      duration: 0,
     }),
   },
   'content-right': {
@@ -34,7 +35,7 @@ const styles = theme => ({
   contentShift: {
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
+      duration: 0,
     }),
   },
   'contentShift-right': {
@@ -66,7 +67,9 @@ class App extends Component {
           >
             <Button onClick={this.toggleDrawer}>Toggle Drawer</Button>
           </main>
-          <DrawerComponent open={this.state.open} />
+          <DrawerToggle open={this.state.open} variant={'persistent'} />
+          <DrawerToggle open={true} variant={'permanent'} />
+          {/* <MenuComponent onClick={this.toggleDrawer} /> */}
         </div>
       </div>
     );

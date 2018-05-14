@@ -7,7 +7,7 @@ import Button from 'material-ui/Button';
 const drawerWidth = 150;
 const styles = theme => ({
   drawerPaper: {
-    background: "#9E9E9E9E",
+    background: '#9E9E9E9E',
     position: 'relative',
     width: drawerWidth,
   },
@@ -21,25 +21,26 @@ const styles = theme => ({
 });
 
 
-function DrawerComponent({ classes, open }) {
+function DrawerToggle({ classes, open, variant }) {
   return (
     <Drawer
-        variant="persistent"
-        anchor='right'
-        open={open}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          Header
-        </div>
-        <Button>Item 1</Button>
-        <Button>Item 2</Button>
-        <Button>Item 3</Button>
-      </Drawer>
+      transitionDuration={0}
+      variant={variant}
+      anchor='right'
+      open={open}
+      classes={{
+        paper: classes.drawerPaper,
+      }}
+    >
+      <div className={classes.drawerHeader}>
+        Header
+      </div>
+      <Button>Item 1</Button>
+      <Button>Item 2</Button>
+      <Button>Item 3</Button>
+    </Drawer>
   );
 }
 
 
-export default withStyles(styles)(DrawerComponent);
+export default withStyles(styles)(DrawerToggle);
